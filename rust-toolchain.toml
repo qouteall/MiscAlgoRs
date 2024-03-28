@@ -1,0 +1,6 @@
+[toolchain]
+channel = "nightly-2024-03-27"
+
+# to set up toolchain:
+# rustup override set nightly-2024-03-27-x86_64-pc-windows-gnu
+# see https://rust-lang.github.io/rustup/overrides.html

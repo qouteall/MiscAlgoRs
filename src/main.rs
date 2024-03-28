@@ -1,16 +1,12 @@
-use crate::sort::lazy_quick_sort::LazyQuickSorter;
+#![feature(fn_traits, unboxed_closures)]
 
-
-mod sort;
-
+mod quick_sort;
+mod dyn_pro;
+mod data_structure;
+mod merge_sort;
+mod functional;
 
 fn main() {
+    // see the unit tests in the other modules for examples.
     println!("Hello, world!");
-
-    let mut arr = [1, 3, 2, 4, 5];
-
-    let mut s = LazyQuickSorter::new(&mut arr, &|x: &i32| *x);
-
-    println!("{:?}", s.at(1));
-
 }
