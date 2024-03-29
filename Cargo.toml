@@ -7,9 +7,6 @@ edition = "2021"
 
 include = ["docs/**/*", "src/**/*"]
 
-[workspace]
-rust-toolchain = "nightly"
-
 [dependencies]
 rand = "0.8"
 slotmap = "1.0.7"
