@@ -6,12 +6,15 @@ use crate::quick_sort::pivot_select::median_of_three_pivot;
 // Quick Sort is a divide-and-conquer algorithm.
 // In each step, it separates the list into the left part and the right part, where left part <= pivot and right part >= pivot.
 // The elements in each part will be sorted by recursively.
-// The partition process is minimizing the freedom of the position of each elements.
+// The partition process is minimizing the freedom of the position of each element.
 // In average case, in each partition process, each element's possible position range is cut by half.
 // In the end, each element's position freedom is reduced to minimal, having the list sorted.
 // If we only want the n-th element in an array, we don't need to sort the whole array,
 // we only need to sort the parts that contains the n-th element.
 // Because of the separation, not sorting the unrelated parts will not affect the position.
+// This is also called "Quick Select" algorithm.
+// The lazy quick sort maintains sort state information, 
+// allowing quick select on an array multiple times to be more efficient.
 pub struct LazyQuickSorter<'a, Element, Comparator>
     where
         Comparator: Fn(&Element, &Element) -> Ordering,
@@ -62,7 +65,7 @@ impl<'a, Element, Comparator> LazyQuickSorter<'a, Element, Comparator>
     }
     
     // Get the index + 1 th smallest element in the array.
-    // Time complexity is O(log n) where n is list size.
+    // Average time complexity is O(n) where n is list size.
     pub fn at(&mut self, index: usize) -> &Element {
         LazyQuickSorter::ensure_sorted(
             &mut self.root_node,
